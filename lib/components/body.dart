@@ -54,17 +54,37 @@ class Body extends StatelessWidget {
                 ),
                 inputField(context),
                 SizedBox(
-                  height: 30,
+                  height: 10,
                 ),
                 TextButton(
-                  style: TextButton.styleFrom(
-                    textStyle: TextStyle(
+                  onPressed: () {},
+                  child: Text(
+                    'Or Continue With',
+                    style: TextStyle(
                       color: Color.fromRGBO(255, 255, 255, 1),
                     ),
                   ),
-                  onPressed: null,
-                  child: Text('Or Continue With'),
                 ),
+                SizedBox(
+                  height: 10,
+                ),
+                socialLogin(context),
+                SizedBox(
+                  height: 10,
+                ),
+                TextButton(
+                  onPressed: () {},
+                  child: Text(
+                    'Forgot Your Password?',
+                    style: TextStyle(
+                      color: Color.fromRGBO(255, 255, 255, 1),
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                loginButton(context),
               ],
             )
           ],
@@ -72,6 +92,79 @@ class Body extends StatelessWidget {
       ],
     );
   }
+}
+
+loginButton(context) {
+  final ButtonStyle elevatedLoginButonStyle = ElevatedButton.styleFrom(
+    primary: Color.fromRGBO(227, 26, 26, 1),
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(18.0),
+      side: BorderSide(
+        color: Color.fromRGBO(37, 37, 37, 1),
+      ),
+    ),
+    padding: EdgeInsets.symmetric(vertical: 18, horizontal: 50),
+    textStyle: TextStyle(
+      fontSize: 14,
+      fontWeight: FontWeight.bold,
+    ),
+  );
+  return ElevatedButton(
+    style: elevatedLoginButonStyle,
+    onPressed: () {},
+    child: Text('Login'),
+  );
+}
+
+socialLogin(context) {
+  final ButtonStyle elevatedButonStyle = ElevatedButton.styleFrom(
+    primary: Color.fromRGBO(37, 37, 37, 1),
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(18.0),
+      side: BorderSide(
+        color: Color.fromRGBO(37, 37, 37, 1),
+      ),
+    ),
+    padding: EdgeInsets.symmetric(
+      vertical: 18,
+    ),
+    textStyle: TextStyle(
+      fontSize: 14,
+      fontWeight: FontWeight.bold,
+    ),
+  );
+  return Row(
+    mainAxisAlignment: MainAxisAlignment.center,
+    children: [
+      Expanded(
+        child: ElevatedButton.icon(
+          icon: Image.asset(
+            "assets/icons/facebook.png",
+            width: 20,
+            height: 20,
+          ),
+          style: elevatedButonStyle,
+          onPressed: () {},
+          label: Text('Facebook'),
+        ),
+      ),
+      SizedBox(
+        width: 20,
+      ),
+      Expanded(
+        child: ElevatedButton.icon(
+          icon: Image.asset(
+            "assets/icons/google.png",
+            width: 20,
+            height: 20,
+          ),
+          style: elevatedButonStyle,
+          onPressed: () {},
+          label: Text('Google'),
+        ),
+      ),
+    ],
+  );
 }
 
 inputField(context) {
